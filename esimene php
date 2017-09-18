@@ -1,16 +1,108 @@
+<?php
+
+    //variables
+    $myname="Tanel";
+    $myfamilyname="Kuklane";
+    $hournow=date("H");
+    $partofday="";
+	$myage;
+	$mybeartyear;
+	$yearsofmylife="";
+	$monthnamesET=["Jaanuar", "Veebruar", "Marts", "Aprill", "Mai", "Juuni", 
+	"Juuli", "August", "September", "Oktoober", "November", "Detsember"];
+
+?>    
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
 
-<title>     Mina     </title>
+<title>     Examples     </title>
 
 </head>
 
 <body>
 
-<p>     Olin siin     </p> 
+    <h1>     1. Writing my name using variables     </h1>
+   
+    <p>
+    <?php   
+
+    echo $myname . " ". $myfamilyname; 
+   
+    ?> 
+    </p> 
+
+    <h1>     2. Use the datetime function     </h1>  
+
+    <?php
+
+echo "<p> At the time the page was opened, it was a clock " .date("H:i:s") .".</p>";
+    ?>
+
+<p>
+<?php
+
+if($hournow<8)
+{
+	$partofday="morning";
+}
+
+if($hournow>=8 and $hournow<16)
+{
+	$partofday="school day";
+}
+
+if($hournow>=16)
+{
+	$partofday="free time";
+}
+
+echo "Now is " .$partofday. ".";
+
+?>
+</p>
+
+<h2>     Räägime vanusest    </h2>
+<p>      Sisesta sünniaasta, arvutame vanuse.    </p>
+
+<form method="POST">  
+
+<label> Teie sünniaasta </label>
+<input name="birthyear" id="birthyear" type="number" max="2017" min="1900" value=<?php echo $mybeartyear ; ?>>
+
+<input id="subitbirthyear" type="submit" value="Kinnita">
+
+<?php
+
+if (isset($_POST["birthyear"]) and $_POST["birthyear"] != 0)
+{
+echo _POST("birthyear");
+$myage=date("Y")-$birthyear;
+}
+
+$agenote= "<p> Te olete " .$myage. " vana. </p>";
+
+if(agenote!="")
+{
+	echo $agenote;
+}
+	
+?>
+
+<?php
+
+echo $monthnamesET[3];
+
+$monthnow=$monthnamesET(date("Y"));
+
+echo $monthnow;
+
+?>
+
+</form>
 
 </body>
 
